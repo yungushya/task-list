@@ -9,20 +9,20 @@ interface ITodoList {
 }
 
 export const TodoList = ({ todos, onToggle, onDelete }: ITodoList) => {
+  if (todos.length === 0) {
+    <p className='text-center text-text-muted'>Задач пока нет</p>;
+  }
+
   return (
     <ul className='flex flex-col gap-2'>
-      {todos.length === 0 ? (
-        <p className='text-center text-text-muted'>Задач пока нет</p>
-      ) : (
-        todos.map((todo) => (
-          <TodoItem
-            key={todo.id}
-            todo={todo}
-            onToggle={onToggle}
-            onDelete={onDelete}
-          />
-        ))
-      )}
+      {todos.map((todo) => (
+        <TodoItem
+          key={todo.id}
+          todo={todo}
+          onToggle={onToggle}
+          onDelete={onDelete}
+        />
+      ))}
     </ul>
   );
 };
