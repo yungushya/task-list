@@ -10,7 +10,7 @@ interface ITodoList {
 
 export const TodoList = ({ todos, onToggle, onDelete }: ITodoList) => {
   if (todos.length === 0) {
-    <p className='text-center text-text-muted'>Задач пока нет</p>;
+    return <p className='text-center text-text-muted'>Задач пока нет</p>;
   }
 
   return (
